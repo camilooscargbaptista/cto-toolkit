@@ -153,6 +153,7 @@ For every domain, flag these when detected:
 - Copy-paste code (DRY violation)
 - Premature optimization without profiling data
 - Missing input validation at trust boundaries
+- **Rename without propagation** (property/method renamed in entity/interface but consumers still reference old name — #1 cause of build failures)
 
 **Data:**
 - Float for money (use decimal/integer cents)
@@ -187,6 +188,8 @@ Output MUST NOT be delivered if any of these are true:
 - Critical security vulnerability identified but not marked as blocking
 - Missing error handling on I/O operations not flagged
 - No positive feedback included (always find something good)
+- Build not verified (run `tsc --noEmit`, `mvn compile`, or `dart analyze` before reviewing — if build fails, review is blocked)
+- Entity/model/interface changed without verifying all consumers are updated (rename propagation check)
 
 **For specs/stories:**
 - Acceptance criteria missing or not in Given-When-Then format

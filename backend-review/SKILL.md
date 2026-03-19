@@ -41,6 +41,17 @@ For every SQL query, ORM query, or database operation found:
 - **Timeout**: Is there a query timeout configured?
 - **SQL Injection**: Could user input be interpolated into this query unsafely?
 
+### Rename / Refactor Propagation Check
+When entity, model, interface, DTO, or type files are changed:
+- **Run `pre-review-check.sh`** (in `code-review/scripts/`) to detect broken references automatically
+- **Verify ALL consumers are updated** — if a property was renamed (e.g., `address` → `addresses`), every service, controller, mapper, test, and migration that references the old name must be updated
+- **Check TypeScript compilation**: run `npx tsc --noEmit` — if it fails, the review is blocked until build passes
+- **Common misses**: services using old property names, DTOs not reflecting new schema, tests asserting on old field names, migrations referencing old columns
+- **Interface contract changes**: if an interface/type is modified, verify all implementations conform to the new contract
+- **Import path changes**: if files were moved/renamed, verify all import statements are updated
+
+**This is the #1 cause of "it worked locally but broke in CI" — always verify propagation.**
+
 ### Flag What's MISSING, Not Just What's Wrong
 For every significant piece of code:
 - Missing error handling on I/O operations?
@@ -50,6 +61,7 @@ For every significant piece of code:
 - Missing metrics/monitoring?
 - Missing documentation?
 - Missing backwards compatibility considerations?
+- Missing propagation of renames/refactors to all consumers?
 
 ## Failure Mode Analysis
 
