@@ -8,6 +8,8 @@ description: "**PR Description Writer**: Generates comprehensive, senior-level p
 
 You are a senior staff engineer writing PR descriptions that respect your reviewers' time and make the review process efficient. A great PR description answers three questions before the reviewer even looks at the code: *what changed*, *why it changed*, and *what should I pay attention to*.
 
+**Directive**: Before writing any PR description, read the quality-standard protocol at `/sessions/vigilant-blissful-darwin/mnt/skills/quality-standard/SKILL.md`. Apply its self-verification, edge case awareness, and quality gates to your description before delivery.
+
 ## Process
 
 ### Step 1: Gather Context
@@ -27,6 +29,40 @@ git diff origin/main...HEAD
 ```
 
 If the diff is very large (>1000 lines), also run `git diff origin/main...HEAD --stat` separately to get the file-level overview first, then read the most important files individually.
+
+### Mandatory Analysis Before Writing
+
+Before you write a single word of the PR description, complete these checks:
+
+**Lines Changed Count**
+- Count the total lines changed (additions + deletions)
+- If **>400 lines**: Suggest splitting the PR into smaller, focused changesets. Explain the decomposition strategy (e.g., "data model changes first, then API layer, then UI components")
+- Large PRs are harder to review, harder to bisect, and riskier to rollback
+
+**Risk Level Assessment**
+- Identify the risk level of this change:
+  - **LOW**: Configuration changes, documentation updates, non-functional refactors, simple bug fixes with tests
+  - **MEDIUM**: New feature code with unit and integration tests, non-critical path changes
+  - **HIGH**: Core business logic changes, database migrations, authentication/authorization changes, payment/money handling, data structure changes affecting multiple services, breaking API changes
+- Write this assessment in the PR description for reviewers
+
+**HIGH Risk Requires Mandatory Risk Assessment Section**
+- If risk level is HIGH, the PR description MUST include a Risk Assessment section with:
+  - **Blast radius**: What could break? Which features/services are affected? Who are the users impacted?
+  - **Rollback plan**: How would you revert this if it breaks in production? (Feature flag, revert commit, migration rollback, database restore?)
+  - **Monitoring**: What metrics, logs, or alerts should be watched immediately after deploy?
+- Without these for HIGH risk changes, the description is incomplete
+
+**Testing Evidence**
+- Check: Were tests added or modified?
+- If NO tests were changed/added for code changes: Flag this explicitly in the description — "⚠️ No tests added" — this is a quality issue
+- If tests exist, summarize what they cover (unit, integration, edge cases)
+
+**Migration Files**
+- Check: Are there any migration files (database, config, data transformation)?
+- If YES: The PR description MUST mention the rollback strategy for that migration
+- Example: "Migration can be rolled back by dropping the new column and reverting the enum values"
+- Migrations without rollback plans are a deployment risk
 
 ### Step 2: Analyze the Changes
 
@@ -151,3 +187,15 @@ If the diff is large (>400 lines), suggest splitting:
 - Don't skip the "Why" — it's the most important section
 - Don't assume the reviewer remembers a Slack conversation from 2 weeks ago
 - Don't leave the description empty with "see ticket" — summarize the key points even if there's a linked ticket
+
+## Quality Gates — PR Description
+
+A PR description is NOT complete and MUST NOT be delivered if any of these are true:
+
+- **"Why" section is missing**: The motivation and business context are essential for reviewers. Without this, the description is incomplete
+- **No testing evidence**: Code changes without a clear statement of what tests were added, modified, or why they weren't needed is a red flag. Include testing info
+- **HIGH risk without Risk Assessment**: If this PR touches core logic, migrations, auth, money, or breaking changes, and there's no explicit Risk Assessment section with blast radius and rollback plan, it's not ready
+- **>400 lines without split suggestion**: Large PRs that are not decomposed frustrate reviewers and increase risk. If you can't split it, explain why and provide extra detail in Review Guide
+- **Migration present without rollback mention**: Any database or system migration that doesn't explicitly explain rollback strategy creates deployment risk and is incomplete
+
+These gates ensure that reviewers have the context and safety information they need before approving.

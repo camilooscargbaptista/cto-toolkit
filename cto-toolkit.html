@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTO Toolkit | Claude Code Plugin by Girardelli Tecnologia</title>
+
+    <meta name="description" content="CTO Toolkit — A Claude Code plugin with 24 skills covering code review, architecture, DevOps, security, testing, observability, and engineering management. Built by Girardelli Tecnologia.">
+    <meta name="keywords" content="CTO Toolkit, Claude Code plugin, code review, clean architecture, SOLID, design patterns, DevOps, terraform, security, pentest, testing, TDD, BDD, observability, SRE, engineering management">
+    <meta name="author" content="Girardelli Tecnologia">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CTO Toolkit | Claude Code Plugin">
+    <meta property="og:description" content="24 skills covering the full software engineering lifecycle. Code review, architecture, DevOps, security, testing, and management.">
+    <meta property="og:url" content="https://www.girardellitecnologia.com/cto-toolkit">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CTO Toolkit | Claude Code Plugin">
+    <meta name="twitter:description" content="24 skills for CTOs and Staff Engineers. Built for Claude Code.">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='sans-serif' font-weight='900' fill='%23d4a574'>G</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CTO Toolkit",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "description": "A Claude Code plugin with 24 skills covering the full software engineering lifecycle.",
+        "author": {
+            "@type": "Organization",
+            "name": "Girardelli Tecnologia",
+            "url": "https://www.girardellitecnologia.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "softwareVersion": "1.0.0",
+        "license": "https://opensource.org/licenses/MIT"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --accent-primary: #d4a574;
+            --accent-secondary: #c084fc;
+            --accent-ai: #818cf8;
+            --accent-gradient: linear-gradient(135deg, #d4a574, #c084fc, #818cf8);
+            --text-primary: #f0ece6;
+            --text-secondary: #9a958e;
+            --text-muted: #5c584f;
+            --border: #2a2a35;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700; font-size: 0.85rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 8rem 2rem 4rem;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(212,165,116,0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 50%, rgba(129,140,248,0.04) 0%, transparent 50%);
+        }
+        .hero-content { position: relative; max-width: 900px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.4rem 1rem; margin-bottom: 2rem;
+            border: 1px solid var(--border); border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 1px;
+            color: var(--accent-primary);
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #22c55e; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900; line-height: 1.1;
+            margin-bottom: 1.5rem; letter-spacing: -0.03em;
+        }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-secondary);
+            max-width: 650px; margin: 0 auto 2.5rem;
+        }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem; font-weight: 800;
+            color: var(--accent-primary);
+        }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--accent-gradient);
+            color: #0a0a0f; font-weight: 700; font-size: 0.9rem;
+            border-radius: 8px; text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,165,116,0.3); }
+        .cta-secondary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            border: 1px solid var(--border);
+            color: var(--text-primary); font-weight: 600; font-size: 0.9rem;
+            border-radius: 8px; text-decoration: none;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .cta-secondary:hover { border-color: var(--accent-primary); background: rgba(212,165,116,0.05); }
+
+        /* INSTALL */
+        .install-section {
+            padding: 4rem 2rem; background: var(--bg-secondary);
+            text-align: center;
+        }
+        .install-box {
+            max-width: 700px; margin: 0 auto;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 2rem; text-align: left;
+        }
+        .install-box .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .install-cmd {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem; color: var(--accent-primary);
+            background: var(--bg-primary); padding: 1rem 1.5rem;
+            border-radius: 8px; border: 1px solid var(--border);
+            margin-bottom: 0.75rem;
+            overflow-x: auto; white-space: nowrap;
+        }
+        .install-cmd .comment { color: var(--text-muted); }
+
+        /* SECTION */
+        section { padding: 6rem 2rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 2px;
+            color: var(--accent-primary); text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800; margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .section-desc { color: var(--text-secondary); max-width: 650px; margin-bottom: 3rem; }
+
+        /* SKILLS GRID */
+        .skills-category { margin-bottom: 4rem; }
+        .category-header {
+            display: flex; align-items: center; gap: 1rem;
+            margin-bottom: 1.5rem; padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .category-icon { font-size: 1.5rem; }
+        .category-name { font-weight: 700; font-size: 1.1rem; }
+        .category-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; color: var(--text-muted);
+            background: var(--bg-card); padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+        .skill-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 10px; padding: 1.25rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .skill-card:hover { border-color: var(--accent-primary); transform: translateY(-2px); }
+        .skill-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem; font-weight: 700;
+            color: var(--accent-primary); margin-bottom: 0.5rem;
+        }
+        .skill-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+        .skill-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.55rem; letter-spacing: 0.5px;
+            padding: 0.15rem 0.5rem; border-radius: 4px;
+            background: rgba(212,165,116,0.08); color: var(--accent-primary);
+            border: 1px solid rgba(212,165,116,0.15);
+        }
+
+        /* FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 10px; padding: 1.5rem;
+        }
+        .feature-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .feature-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+        .feature-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* TECH */
+        .tech-grid {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .tech-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; padding: 0.3rem 0.8rem;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 6px; color: var(--text-secondary);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 2rem; text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        footer p { font-size: 0.8rem; color: var(--text-muted); }
+        footer a { color: var(--accent-primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1rem; }
+            .nav-links { gap: 1rem; }
+            .hero-stats { gap: 1.5rem; }
+            .stat-value { font-size: 1.5rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="https://www.girardellitecnologia.com" class="nav-brand">GIRARDELLI TECNOLOGIA</a>
+    <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#features">Features</a>
+        <a href="https://github.com/camilooscargbaptista/cto-toolkit" target="_blank" rel="noopener">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            <span class="mono">CLAUDE CODE PLUGIN</span>
+        </div>
+        <h1>CTO <span class="gradient-text">Toolkit</span></h1>
+        <p>24 skills covering the full software engineering lifecycle. From sprint planning to production incident response. Built for CTOs, Staff Engineers, and Tech Leads who ship production software.</p>
+        <div class="hero-stats">
+            <div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Skills</div>
+            </div>
+            <div>
+                <div class="stat-value">21</div>
+                <div class="stat-label">Reference Docs</div>
+            </div>
+            <div>
+                <div class="stat-value">10K+</div>
+                <div class="stat-label">Lines of Content</div>
+            </div>
+            <div>
+                <div class="stat-value">MIT</div>
+                <div class="stat-label">License</div>
+            </div>
+        </div>
+        <div class="hero-ctas">
+            <a href="https://github.com/camilooscargbaptista/cto-toolkit" target="_blank" rel="noopener" class="cta-primary">View on GitHub</a>
+            <a href="#skills" class="cta-secondary">Explore Skills</a>
+        </div>
+    </div>
+</section>
+
+<section class="install-section">
+    <div class="install-box">
+        <div class="label">// install</div>
+        <div class="install-cmd">
+            <span class="comment"># Add marketplace</span><br>
+            /plugin marketplace add camilooscargbaptista/cto-toolkit
+        </div>
+        <div class="install-cmd">
+            <span class="comment"># Or install directly</span><br>
+            claude plugin install cto-toolkit@camilooscargbaptista/cto-toolkit
+        </div>
+    </div>
+</section>
+
+<section id="skills" style="background: var(--bg-secondary);">
+    <div class="section-inner">
+        <div class="section-label">// skills</div>
+        <h2 class="section-title">Everything you need to <span class="gradient-text">ship with confidence</span></h2>
+        <p class="section-desc">Skills activate automatically based on context. Ask Claude to review code, plan a sprint, write a PR description, or debug a performance issue — the right skill kicks in.</p>
+
+        <div class="skills-category">
+            <div class="category-header">
+                <span class="category-icon">&lt;/&gt;</span>
+                <span class="category-name">Code Review</span>
+                <span class="category-count">6 skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">code-review</div>
+                    <div class="skill-desc">Router that detects technology context and delegates to the right specialist. Falls back to comprehensive general review.</div>
+                    <div class="skill-tags"><span class="skill-tag">ROUTER</span><span class="skill-tag">READ-ONLY</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">backend-review</div>
+                    <div class="skill-desc">Node.js, Java, Clean Architecture, SOLID, microservices, messaging, payments.</div>
+                    <div class="skill-tags"><span class="skill-tag">NODE</span><span class="skill-tag">JAVA</span><span class="skill-tag">CLEAN ARCH</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">frontend-review</div>
+                    <div class="skill-desc">Angular, React, TypeScript, accessibility, performance, CSS architecture.</div>
+                    <div class="skill-tags"><span class="skill-tag">ANGULAR</span><span class="skill-tag">REACT</span><span class="skill-tag">A11Y</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">flutter-review</div>
+                    <div class="skill-desc">Dart, BLoC/Cubit, widget architecture, platform channels, performance.</div>
+                    <div class="skill-tags"><span class="skill-tag">FLUTTER</span><span class="skill-tag">DART</span><span class="skill-tag">BLOC</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">security-review</div>
+                    <div class="skill-desc">OAuth2, JWT, RBAC, API security, LGPD/GDPR, payment security.</div>
+                    <div class="skill-tags"><span class="skill-tag">OAUTH2</span><span class="skill-tag">JWT</span><span class="skill-tag">PCI</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">ux-review</div>
+                    <div class="skill-desc">Nielsen heuristics, mobile UX, accessibility, design systems.</div>
+                    <div class="skill-tags"><span class="skill-tag">UX</span><span class="skill-tag">A11Y</span><span class="skill-tag">MOBILE</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <div class="category-header">
+                <span class="category-icon">{}</span>
+                <span class="category-name">Architecture & Patterns</span>
+                <span class="category-count">3 skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">design-patterns</div>
+                    <div class="skill-desc">SOLID, Clean Architecture, DDD, GoF patterns, refactoring guidance with TypeScript examples.</div>
+                    <div class="skill-tags"><span class="skill-tag">SOLID</span><span class="skill-tag">DDD</span><span class="skill-tag">GOF</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">adr</div>
+                    <div class="skill-desc">Architecture Decision Records using Michael Nygard format with status tracking.</div>
+                    <div class="skill-tags"><span class="skill-tag">ADR</span><span class="skill-tag">DECISIONS</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">tech-spec</div>
+                    <div class="skill-desc">Technical specifications and RFCs with 12-section template. Design docs that drive alignment.</div>
+                    <div class="skill-tags"><span class="skill-tag">RFC</span><span class="skill-tag">SPEC</span><span class="skill-tag">DESIGN DOC</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <div class="category-header">
+                <span class="category-icon">&#9881;</span>
+                <span class="category-name">DevOps & Infrastructure</span>
+                <span class="category-count">4 skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">devops-infra</div>
+                    <div class="skill-desc">Docker, AWS (ECS, Lambda, S3, RDS), CI/CD, Kafka, SQS/SNS, monitoring.</div>
+                    <div class="skill-tags"><span class="skill-tag">DOCKER</span><span class="skill-tag">AWS</span><span class="skill-tag">CI/CD</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">terraform-iac</div>
+                    <div class="skill-desc">Terraform modules, state management, security, CI/CD pipelines for infrastructure.</div>
+                    <div class="skill-tags"><span class="skill-tag">TERRAFORM</span><span class="skill-tag">HCL</span><span class="skill-tag">IAC</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">observability</div>
+                    <div class="skill-desc">SLOs/SLIs, alerting strategy, dashboards, OpenTelemetry, on-call best practices.</div>
+                    <div class="skill-tags"><span class="skill-tag">SRE</span><span class="skill-tag">OTEL</span><span class="skill-tag">SLO</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">cost-optimization</div>
+                    <div class="skill-desc">FinOps, right-sizing, pricing models, cloud waste elimination, budget governance.</div>
+                    <div class="skill-tags"><span class="skill-tag">FINOPS</span><span class="skill-tag">AWS</span><span class="skill-tag">COST</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <div class="category-header">
+                <span class="category-icon">&#9888;</span>
+                <span class="category-name">Quality & Security</span>
+                <span class="category-count">3 skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">testing-strategy</div>
+                    <div class="skill-desc">TDD, BDD, unit/integration/E2E testing, coverage guidelines, QA processes.</div>
+                    <div class="skill-tags"><span class="skill-tag">TDD</span><span class="skill-tag">BDD</span><span class="skill-tag">JEST</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">pentest</div>
+                    <div class="skill-desc">OWASP Top 10, PTES methodology, vulnerability reporting, STRIDE threat modeling.</div>
+                    <div class="skill-tags"><span class="skill-tag">OWASP</span><span class="skill-tag">STRIDE</span><span class="skill-tag">PENTEST</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">systematic-debugging</div>
+                    <div class="skill-desc">Scientific debugging method, binary search, production debugging, flaky test diagnosis.</div>
+                    <div class="skill-tags"><span class="skill-tag">DEBUG</span><span class="skill-tag">BISECT</span><span class="skill-tag">ROOT CAUSE</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <div class="category-header">
+                <span class="category-icon">&#9851;</span>
+                <span class="category-name">Database & Performance</span>
+                <span class="category-count">3 skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">database-review</div>
+                    <div class="skill-desc">Schema design, migrations, EXPLAIN plans, indexing, connection pools, NoSQL patterns.</div>
+                    <div class="skill-tags"><span class="skill-tag">POSTGRES</span><span class="skill-tag">MONGO</span><span class="skill-tag">REDIS</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">performance-profiling</div>
+                    <div class="skill-desc">Node.js/Java/Flutter profiling, load testing, caching strategies, flame graphs.</div>
+                    <div class="skill-tags"><span class="skill-tag">PROFILING</span><span class="skill-tag">K6</span><span class="skill-tag">CACHE</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">api-documentation</div>
+                    <div class="skill-desc">OpenAPI/Swagger specs, REST design guidelines, documentation quality checklists.</div>
+                    <div class="skill-tags"><span class="skill-tag">OPENAPI</span><span class="skill-tag">SWAGGER</span><span class="skill-tag">REST</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <div class="category-header">
+                <span class="category-icon">&#9733;</span>
+                <span class="category-name">Process & Management</span>
+                <span class="category-count">5 skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-name">sprint-planning</div>
+                    <div class="skill-desc">User stories (INVEST), estimation, RICE prioritization, quarterly roadmaps.</div>
+                    <div class="skill-tags"><span class="skill-tag">SCRUM</span><span class="skill-tag">RICE</span><span class="skill-tag">ROADMAP</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">git-flow</div>
+                    <div class="skill-desc">Branching strategies, Conventional Commits, PR guidelines, semantic versioning.</div>
+                    <div class="skill-tags"><span class="skill-tag">GIT</span><span class="skill-tag">SEMVER</span><span class="skill-tag">COMMITS</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">pr-description</div>
+                    <div class="skill-desc">Generates senior-level PR descriptions with risk assessment and review guidance.</div>
+                    <div class="skill-tags"><span class="skill-tag">PR</span><span class="skill-tag">GITHUB</span><span class="skill-tag">REVIEW</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">one-on-one</div>
+                    <div class="skill-desc">1:1 prep, SBI feedback framework, career development conversations, skip-levels.</div>
+                    <div class="skill-tags"><span class="skill-tag">1:1</span><span class="skill-tag">FEEDBACK</span><span class="skill-tag">CAREER</span></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-name">incident-postmortem</div>
+                    <div class="skill-desc">Blameless postmortems, runbooks, severity classification, escalation procedures.</div>
+                    <div class="skill-tags"><span class="skill-tag">INCIDENT</span><span class="skill-tag">BLAMELESS</span><span class="skill-tag">SRE</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="section-inner">
+        <div class="section-label">// architecture</div>
+        <h2 class="section-title">Built with <span class="gradient-text">progressive disclosure</span></h2>
+        <p class="section-desc">Skills load lean SKILL.md files into context. Deep-dive references load on demand, saving tokens without sacrificing depth.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&lt;/&gt;</div>
+                <div class="feature-title">Read-Only Reviews</div>
+                <div class="feature-desc">Review skills use <code style="color:var(--accent-primary)">allowed-tools</code> to restrict to read operations only. No accidental code modifications during analysis.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">{ }</div>
+                <div class="feature-title">Progressive Disclosure</div>
+                <div class="feature-desc">Lean SKILL.md (~100 lines) with 21 deep-dive reference files loaded on demand. 63% less context usage.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">$_</div>
+                <div class="feature-title">Utility Scripts</div>
+                <div class="feature-desc">3 shell scripts for pre-review checks, secret scanning, and diff generation. Executed without loading into context.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#x2192;</div>
+                <div class="feature-title">Smart Routing</div>
+                <div class="feature-desc">code-review detects technology context and delegates to the right specialist. .dart files route to flutter-review, .ts backend to backend-review.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9878;</div>
+                <div class="feature-title">Full Lifecycle</div>
+                <div class="feature-desc">From sprint planning to production incident response. Planning, coding, reviewing, deploying, monitoring, and managing — all covered.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9881;</div>
+                <div class="feature-title">Senior-Level Content</div>
+                <div class="feature-desc">10,000+ lines of production-tested patterns, checklists, and templates. Written by a CTO with 19+ years of experience.</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <div class="section-label">// tech coverage</div>
+            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Stack Coverage</h3>
+            <div class="tech-grid">
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">NestJS</span>
+                <span class="tech-badge">Spring Boot</span>
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Flutter</span>
+                <span class="tech-badge">Dart</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">AWS</span>
+                <span class="tech-badge">Terraform</span>
+                <span class="tech-badge">GitHub Actions</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">MongoDB</span>
+                <span class="tech-badge">DynamoDB</span>
+                <span class="tech-badge">Redis</span>
+                <span class="tech-badge">Kafka</span>
+                <span class="tech-badge">SQS/SNS</span>
+                <span class="tech-badge">OpenTelemetry</span>
+                <span class="tech-badge">Prometheus</span>
+                <span class="tech-badge">Grafana</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p style="margin-bottom: 0.5rem;">
+        <strong style="color: var(--text-primary);">CTO Toolkit v1.0.0</strong> &mdash; MIT License
+    </p>
+    <p>
+        Built by <a href="https://www.girardellitecnologia.com" target="_blank" rel="noopener">Girardelli Tecnologia</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://github.com/camilooscargbaptista/cto-toolkit" target="_blank" rel="noopener">GitHub</a>
+        &nbsp;&middot;&nbsp;
+        <a href="mailto:camilo.baptista@girardellitecnologia.com">Contact</a>
+    </p>
+</footer>
+
+</body>
+</html>
