@@ -1,0 +1,11 @@
+{
+    "name": "CTO Toolkit",
+    "description": "24 specialized skills for CTOs and tech leads",
+    "plugins": [
+        {
+            "name": "cto-toolkit",
+            "description": "Complete CTO toolkit with code review, security, DevOps and more",
+            "path": "."
+        }
+    ]
+}
