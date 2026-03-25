@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/post-edit-check.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Review the work done in this session. If code was written or modified, briefly verify: (1) no hardcoded secrets were introduced, (2) error handling is present on I/O operations, (3) any new functions have reasonable naming. Report only if issues found — otherwise stay silent. $ARGUMENTS"
+          }
+        ]
+      }
+    ]
+  }
+}

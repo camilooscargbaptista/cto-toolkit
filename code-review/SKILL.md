@@ -19,11 +19,17 @@ Before reviewing, identify the technology context from the code, file extensions
 | `.ts/.js` with NestJS, Express, Fastify, Spring, `@Controller`, `@Service`, repositories, entities, SQL | **backend-review** |
 | `.ts/.tsx/.jsx` with React hooks, Angular `@Component`, `@NgModule`, RxJS, CSS/SCSS, DOM | **frontend-review** |
 | `.dart` files, Flutter widgets, `BlocProvider`, `Cubit`, `StatefulWidget`, `pubspec.yaml` | **flutter-review** |
+| `.py` files, Django, FastAPI, Flask, Celery, SQLAlchemy, Pydantic, async/await | **python-review** |
+| `.go` files, Go modules, goroutines, channels, gin, echo, fiber, gRPC | **go-review** |
+| `.rs` files, Cargo.toml, ownership, borrowing, tokio, actix, axum | **rust-review** |
 | Auth flows, JWT, OAuth, RBAC, encryption, password handling, CORS, rate limiting, LGPD/GDPR | **security-review** |
 | UI mockups, wireframes, user flows, accessibility, responsive design, design tokens | **ux-review** |
 | SQL, migrations, schema changes, query optimization, indexes | **database-review** |
-| Dockerfile, terraform, CI/CD, AWS config, k8s manifests, infrastructure | **devops-infra** |
+| Dockerfile, terraform, CI/CD, AWS config, infrastructure | **devops-infra** |
+| Kubernetes manifests, Helm charts, pods, deployments, services, k8s | **kubernetes-review** |
+| GraphQL schemas, resolvers, mutations, Apollo, Relay, federation | **graphql-review** |
 | Performance issues, memory leaks, profiling, caching, load testing | **performance-profiling** |
+| Event sourcing, CQRS, saga, domain events, Kafka architecture | **event-driven-architecture** |
 
 **When to stay here (general review):**
 - Code spans multiple domains (backend + frontend in same PR)
