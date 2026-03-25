@@ -1,7 +1,7 @@
 {
   "name": "cto-toolkit",
-  "version": "2.0.0",
-  "description": "The ultimate CTO & Staff Engineer toolkit — 39 skills, 5 autonomous agents, intelligent hooks, and workflow orchestrators covering code review, architecture, security, DevOps, data engineering, AI/ML, compliance, team scaling, and engineering management across Python, Go, Rust, Node.js, Java, Flutter, React, and Angular. Built by engineers, for engineers who ship production software.",
+  "version": "3.0.0",
+  "description": "The ultimate CTO & Staff Engineer toolkit — 54 skills, 5 autonomous agents, 9 automation scripts, 5 intelligent hooks, and workflow orchestrators covering code review, architecture, security, DevOps, data engineering, AI/ML, compliance, DDD, multi-tenancy, feature flags, vendor evaluation, engineering budget, on-call design, and team management across TypeScript, Python, Go, Rust, C#/.NET, Swift, Elixir, Java, Flutter, React, and Angular. Built by engineers, for engineers who ship production software.",
   "author": {
     "name": "Girardelli Tecnologia",
     "email": "camilo.baptista@girardellitecnologia.com",
@@ -75,6 +75,21 @@
     "java",
     "flutter",
     "angular",
-    "react"
+    "react",
+    "csharp",
+    "dotnet",
+    "swift",
+    "swiftui",
+    "elixir",
+    "phoenix",
+    "multi-tenancy",
+    "feature-flags",
+    "domain-driven-design",
+    "vendor-evaluation",
+    "on-call",
+    "tech-debt",
+    "api-gateway",
+    "circuit-breaker",
+    "engineering-budget"
   ]
 }

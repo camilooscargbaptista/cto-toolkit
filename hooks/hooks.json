@@ -9,6 +9,44 @@
             "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/post-edit-check.sh"
           }
         ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If the file just written is a Dockerfile, verify: (1) uses non-root USER, (2) has multi-stage build if applicable, (3) no secrets in ENV/ARG, (4) uses specific image tag (not :latest). Report only if issues found."
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If the file just written is a SQL migration (*.sql), verify: (1) filename follows NNN_description.sql pattern, (2) CREATE INDEX uses CONCURRENTLY, (3) no ADD COLUMN NOT NULL without DEFAULT on existing tables, (4) no DROP TABLE without confirmation. Report only if issues found."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If the file just written/edited is a test file (*.spec.ts, *.test.ts, *_test.go, *_test.py), verify: (1) tests have descriptive names, (2) mocks are not hardcoded with magic values, (3) edge cases are covered (null, empty, boundary), (4) no console.log left in tests. Report only if issues found."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if the bash command contains any of these destructive patterns: 'rm -rf /', 'DROP DATABASE', 'TRUNCATE TABLE', 'DELETE FROM' without WHERE, 'format', ':(){:|:&};:'. If ANY are found, REFUSE to execute and warn the user. $ARGUMENTS"
+          }
+        ]
       }
     ],
     "Stop": [
