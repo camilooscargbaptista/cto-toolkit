@@ -1,11 +1,15 @@
 {
-    "name": "CTO Toolkit",
+    "name": "cto-toolkit",
     "description": "24 specialized skills for CTOs and tech leads",
+    "owner": {
+        "name": "camilooscargbaptista",
+        "url": "https://github.com/camilooscargbaptista"
+    },
     "plugins": [
         {
             "name": "cto-toolkit",
             "description": "Complete CTO toolkit with code review, security, DevOps and more",
-            "path": "."
+            "source": "."
         }
     ]
 }
