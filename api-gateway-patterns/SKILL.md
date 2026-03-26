@@ -1,6 +1,15 @@
 ---
 name: api-gateway-patterns
 description: "API Gateway design patterns including rate limiting, authentication, versioning, BFF and circuit breaking"
+triggers:
+  frameworks: [kong, nginx, envoy, traefik, api-gateway]
+  file-patterns: ["**/gateway/**", "**/proxy/**"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: architecture
+estimated-tokens: 5000
+tags: [api-gateway, rate-limiting, routing]
 ---
 
 # API Gateway Patterns

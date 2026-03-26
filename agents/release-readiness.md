@@ -1,10 +1,17 @@
 ---
 name: release-readiness
 description: "Autonomous release readiness assessor. Evaluates whether a project is ready for production deployment by checking code quality, test coverage, security posture, documentation, observability, rollback plan, and operational readiness. Produces a Go/No-Go Release Report. Invoke when the user says 'are we ready to deploy', 'release checklist', 'go/no-go', 'pre-production check', 'launch readiness', 'deploy assessment', or before any major release or go-live."
-model: sonnet
+model: opus
 effort: high
 maxTurns: 30
 disallowedTools: Write, Edit, NotebookEdit
+model-routing:
+  default: sonnet
+  escalate-on: [security_findings, missing_tests, no_rollback_plan]
+  escalate-to: opus
+category: operational
+depends-on-skills: [security-review, testing-strategy, observability, devops-infra]
+estimated-tokens: 20000
 ---
 
 # Release Readiness Agent

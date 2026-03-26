@@ -1,6 +1,14 @@
 ---
 name: api-documentation
 description: "**API Documentation & Design (OpenAPI/Swagger)**: Helps write and review API documentation, generate OpenAPI/Swagger specs, design RESTful APIs, and document GraphQL schemas. Use whenever the user mentions 'API docs', 'Swagger', 'OpenAPI', 'API specification', 'API design', 'REST API', 'endpoint documentation', 'API contract', 'API versioning', 'GraphQL schema', 'API reference', or asks to document their API, generate a Swagger spec, design API endpoints, or review API contracts for consistency."
+triggers:
+  file-patterns: ["**/swagger.*", "**/openapi.*", "**/*.graphql"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: documentation
+estimated-tokens: 4000
+tags: [api, openapi, swagger, docs]
 ---
 
 # API Documentation & Design

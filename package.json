@@ -1,0 +1,83 @@
+{
+  "name": "@girardelli/cto-toolkit",
+  "version": "3.1.0",
+  "description": "54+ engineering skills for Claude Code — architecture review, security, DevOps, database, API design, and more. Now with declarative skill activation, model routing, and continuous learning.",
+  "author": {
+    "name": "Camilo Girardelli",
+    "email": "contact@girardelli.tech",
+    "url": "https://girardelli.tech"
+  },
+  "license": "MIT",
+  "type": "claude-code-plugin",
+  "keywords": [
+    "claude-code",
+    "claude-code-plugin",
+    "cto",
+    "architecture",
+    "code-review",
+    "security",
+    "devops",
+    "engineering-skills",
+    "mcp",
+    "model-routing",
+    "auto-activation",
+    "continuous-learning"
+  ],
+  "skills": {
+    "count": 54,
+    "categories": [
+      "architecture",
+      "code-quality",
+      "security",
+      "devops",
+      "database",
+      "documentation",
+      "performance",
+      "testing",
+      "data",
+      "compliance",
+      "operational",
+      "management",
+      "ai-ml"
+    ]
+  },
+  "agents": {
+    "count": 6,
+    "list": [
+      "adversarial-reviewer",
+      "architecture-reviewer",
+      "onboarding-guide",
+      "release-readiness",
+      "security-auditor",
+      "tech-debt-analyzer"
+    ]
+  },
+  "hooks": {
+    "count": 8,
+    "phases": ["PreToolUse", "PostToolUse", "Stop", "SessionStart"],
+    "features": [
+      "security-quick-check",
+      "destructive-command-guard",
+      "dockerfile-validation",
+      "sql-migration-validation",
+      "test-quality-check",
+      "model-routing-advisory",
+      "session-learning",
+      "auto-activation",
+      "deploy-safety-check"
+    ]
+  },
+  "features": {
+    "declarative-activation": "Skills declare triggers in frontmatter (frameworks, anti-patterns, score thresholds, file patterns, domains)",
+    "model-routing": "Skills and agents declare preferred model tier (haiku/sonnet/opus) with dynamic escalation",
+    "continuous-learning": "Session patterns recorded for improvement suggestions over time",
+    "dependency-graph": "Skills declare dependencies for optimal execution ordering"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camilooscargbaptista/cto-toolkit"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

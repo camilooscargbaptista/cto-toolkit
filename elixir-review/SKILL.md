@@ -1,6 +1,15 @@
 ---
 name: elixir-review
 description: "Review Elixir/Phoenix code: OTP patterns, GenServer, LiveView, fault tolerance and concurrency"
+triggers:
+  frameworks: [phoenix, ecto, otp]
+  file-patterns: ["**/*.ex", "**/*.exs"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: code-quality
+estimated-tokens: 5000
+tags: [elixir, phoenix, otp, erlang]
 ---
 
 # Elixir / Phoenix Code Review

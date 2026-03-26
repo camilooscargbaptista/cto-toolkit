@@ -2,6 +2,14 @@
 name: health-check
 allowed-tools: Read, Grep, Glob, Bash, Agent
 description: "**Project Health Check Orchestrator**: Runs a comprehensive project health assessment by invoking the architecture-reviewer, tech-debt-analyzer, and security-auditor agents in sequence. Produces a unified Project Health Dashboard with scores, trends, and a prioritized improvement roadmap. Use when the user wants a 'health check', 'project assessment', 'codebase audit', 'project health', 'how healthy is this project', or wants an executive-level overview of project quality."
+category: operational
+preferred-model: opus
+min-confidence: 0.9
+depends-on: [backend-review, security-review, testing-strategy]
+estimated-tokens: 10000
+triggers:
+  always: false
+tags: [health-check, assessment, audit, dashboard]
 ---
 
 # Project Health Check Orchestrator

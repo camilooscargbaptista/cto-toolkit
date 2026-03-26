@@ -2,6 +2,14 @@
 name: code-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Code Review Router & General Analysis**: Acts as the primary entry point for all code review requests. Detects the technology context and delegates to the appropriate specialized review skill (backend-review for Node/Java/NestJS, frontend-review for Angular/React, flutter-review for Dart/Flutter, security-review for auth/security concerns, ux-review for UI/UX). For mixed or ambiguous codebases, performs a comprehensive general review covering architecture, security, performance, and maintainability. Use whenever the user says 'review this code', 'check this PR', 'look at my code', 'code review', 'review my changes', shares a diff or code snippet, or pastes code wanting feedback."
+triggers:
+  always: true
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: code-quality
+estimated-tokens: 4000
+tags: [code-review, quality, general]
 ---
 
 # Code Review Router & General Analysis

@@ -2,6 +2,15 @@
 name: rust-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Rust Code Review**: Reviews Rust code for ownership patterns, lifetime management, unsafe usage, error handling with Result/Option, concurrency safety, and idiomatic Rust patterns. Covers async Rust (tokio/async-std), trait design, macro hygiene, and performance. Use when the user wants a review of Rust code, mentions .rs files, Cargo.toml, ownership, borrowing, lifetimes, tokio, actix, axum, or any Rust ecosystem tool."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  frameworks: [tokio, actix, axum, warp]
+  file-patterns: ["**/*.rs", "**/Cargo.toml"]
+depends-on: []
+estimated-tokens: 5000
+tags: [rust, ownership, lifetimes, concurrency]
 ---
 
 # Rust Code Review

@@ -1,6 +1,15 @@
 ---
 name: terraform-iac
 description: "**Terraform & Infrastructure as Code**: Helps write, review, and structure Terraform configurations, modules, state management, and IaC best practices. Use whenever the user mentions 'terraform', 'IaC', 'infrastructure as code', '.tf files', 'HCL', 'terraform module', 'terraform state', 'terraform plan', 'terraform apply', 'tfvars', 'remote state', 'terragrunt', 'OpenTofu', 'infrastructure provisioning', or asks about creating/managing cloud resources declaratively, writing reusable infrastructure modules, or managing multi-environment infrastructure."
+category: devops
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  frameworks: [terraform, pulumi, cdktf, opentofu]
+  file-patterns: ["**/*.tf", "**/terraform/**", "**/*.tfvars"]
+depends-on: [devops-infra]
+estimated-tokens: 5000
+tags: [terraform, iac, infrastructure, modules]
 ---
 
 # Terraform & Infrastructure as Code

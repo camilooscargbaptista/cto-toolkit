@@ -2,6 +2,16 @@
 name: security-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Security Code Review**: Reviews code for security vulnerabilities including authentication (OAuth2, JWT), authorization (RBAC, roles), API security, data protection, payment security, and common attack vectors. Use whenever the user wants a security review, penetration test analysis, threat model, or mentions OAuth2, JWT, authentication, authorization, RBAC, roles, permissions, CORS, CSRF, XSS, SQL injection, secrets management, encryption, PCI, or asks about securing their application. Also trigger when reviewing payment flows, financial transactions, or handling sensitive user data."
+category: security
+preferred-model: opus
+min-confidence: 0.4
+triggers:
+  anti-patterns: [hardcoded_secret, sql_injection, xss, insecure_auth, missing_rate_limit]
+  score-below: 70
+  domains: [fintech, healthtech]
+depends-on: []
+estimated-tokens: 6000
+tags: [security, owasp, authentication, authorization, jwt]
 ---
 
 # Security Code Review

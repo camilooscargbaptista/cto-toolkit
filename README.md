@@ -1,8 +1,19 @@
 # CTO Toolkit
 
-The ultimate Claude Code plugin for engineering leadership — **54 skills, 5 autonomous agents, 9 automation scripts, 5 intelligent hooks, and workflow orchestrators** covering the full software engineering lifecycle.
+The ultimate Claude Code plugin for engineering leadership — **54 skills, 6 autonomous agents, 9 automation scripts, 9 intelligent hooks, and workflow orchestrators** covering the full software engineering lifecycle. Now with **declarative skill activation**, **model routing**, and **continuous learning**.
 
 Built for CTOs, VPs of Engineering, Staff Engineers, and Tech Leads who ship production software.
+
+## What's New in v3.1
+
+- **Declarative Skill Activation** — All 54 skills now declare triggers in YAML frontmatter (frameworks, anti-patterns, score thresholds, file patterns, domains, dimension thresholds). Skills self-activate based on project context
+- **Model Routing** — Skills and agents declare preferred model tier (haiku/sonnet/opus) with dynamic escalation. Security-critical tasks auto-upgrade to opus; quick scans use haiku for 10x cost savings
+- **Continuous Learning** — New `session-learning.sh` Stop hook tracks session patterns (languages, tests, security activity) and generates improvement insights every 10 sessions
+- **Auto-Activation** — New `SessionStart` hook scans the project, detects frameworks/file patterns, and suggests relevant skills automatically at the start of each session
+- **Model Routing Advisory** — New `PostToolUse` hook detects when security-critical or financial files are edited and suggests deeper analysis with opus-tier models
+- **Deploy Safety Guard** — New `PreToolUse` hook intercepts production deployment commands and verifies safety (explicit env, no --force, dry-run first)
+- **Agent Model Upgrades** — adversarial-reviewer, architecture-reviewer, security-auditor, and release-readiness agents upgraded to opus by default with escalation rules
+- **Dependency Graph** — Skills declare `depends-on` for optimal execution ordering via topological sort
 
 ## What's New in v3.0
 
@@ -15,15 +26,16 @@ Built for CTOs, VPs of Engineering, Staff Engineers, and Tech Leads who ship pro
 
 ## Agents
 
-Autonomous subagents that scan your codebase and produce comprehensive reports without manual guidance.
+Autonomous subagents that scan your codebase and produce comprehensive reports without manual guidance. Agents now declare `model-routing` with escalation rules — they start at a cost-efficient tier and upgrade to opus when critical findings are detected.
 
-| Agent | What it does |
-|-------|-------------|
-| `architecture-reviewer` | Scans the entire codebase and produces an Architecture Health Report with scores by dimension |
-| `security-auditor` | Full security audit — secrets, OWASP Top 10, auth, injection, dependencies |
-| `tech-debt-analyzer` | Inventories all tech debt, prioritizes by ROI, produces a sprint reduction plan |
-| `onboarding-guide` | Explores the project and generates a complete Developer Onboarding Guide |
-| `release-readiness` | Evaluates production readiness — Go/No-Go report across 7 dimensions |
+| Agent | Model | What it does |
+|-------|-------|-------------|
+| `architecture-reviewer` | sonnet → opus | Scans the entire codebase and produces an Architecture Health Report with scores by dimension |
+| `security-auditor` | opus | Full security audit — secrets, OWASP Top 10, auth, injection, dependencies |
+| `adversarial-reviewer` | opus | Challenges architectural decisions — stress-tests ADRs, finds hidden risks, devil's advocate |
+| `tech-debt-analyzer` | sonnet → opus | Inventories all tech debt, prioritizes by ROI, produces a sprint reduction plan |
+| `onboarding-guide` | sonnet → opus | Explores the project and generates a complete Developer Onboarding Guide |
+| `release-readiness` | sonnet → opus | Evaluates production readiness — Go/No-Go report across 7 dimensions |
 
 ## Workflow Orchestrators
 
@@ -149,25 +161,33 @@ Shell scripts for CI/CD integration and manual audits.
 
 ## Hooks
 
-Automatic event handlers that run silently in the background.
+Automatic event handlers that run silently in the background across 4 lifecycle phases.
 
 | Event | What it does |
 |-------|-------------|
+| `SessionStart` | **Auto-Activation** — Detects frameworks, file patterns, and project context. Suggests relevant skills |
+| `PreToolUse` (Bash) | Blocks destructive commands (rm -rf /, DROP DATABASE, fork bombs) |
+| `PreToolUse` (Bash) | **Deploy Safety Guard** — Verifies production deploy commands (kubectl, terraform, npm publish) |
 | `PostToolUse` (Write/Edit) | Scans edited files for hardcoded secrets, dangerous functions, SQL injection |
 | `PostToolUse` (Write) | Validates Dockerfile security (non-root, multi-stage, no secrets, no :latest) |
 | `PostToolUse` (Write) | Validates SQL migration naming and safety (CONCURRENTLY, NOT NULL + DEFAULT) |
 | `PostToolUse` (Write/Edit) | Checks test quality (descriptive names, edge cases, no console.log) |
-| `PreToolUse` (Bash) | Blocks destructive commands (rm -rf /, DROP DATABASE, fork bombs) |
+| `PostToolUse` (Write/Edit) | **Model Routing Advisory** — Suggests opus-tier analysis for security-critical/financial files |
 | `Stop` | Reviews session work for security, error handling, and naming quality |
+| `Stop` | **Session Learning** — Records session patterns for continuous improvement insights |
 
 ## Features
 
+- **Declarative activation**: Skills declare triggers in YAML frontmatter — frameworks, anti-patterns, scores, file patterns, domains
+- **Model routing**: Each skill and agent declares preferred model tier (haiku/sonnet/opus) with dynamic escalation on critical findings
+- **Continuous learning**: Session patterns recorded in `.cto-toolkit/learning/` — insights generated every 10 sessions
+- **Dependency graph**: Skills declare `depends-on` for topological ordering — compliance runs after security, not before
 - **Progressive disclosure**: Lean SKILL.md files (~100-150 lines) with deep-dive `references/` loaded on demand
 - **42 reference files**: 8,000+ lines of detailed examples, patterns, and templates across 13 skills
 - **Read-only review skills**: `allowed-tools` restricts review skills to read operations only
-- **Autonomous agents**: 5 agents that analyze codebases end-to-end without user guidance
+- **Autonomous agents**: 6 agents that analyze codebases end-to-end without user guidance
 - **Workflow orchestration**: Multi-skill coordination with consolidated reports
-- **Intelligent hooks**: 5 passive validators running on every code change
+- **Intelligent hooks**: 9 hooks across 4 lifecycle phases (SessionStart, PreToolUse, PostToolUse, Stop)
 - **9 automation scripts**: CI/CD-ready shell scripts for architecture, security, and quality gates
 - **Multi-project sync**: `sync-skills.sh` propagates toolkit updates to all your projects
 

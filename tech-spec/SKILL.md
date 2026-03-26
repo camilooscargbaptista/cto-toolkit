@@ -1,6 +1,13 @@
 ---
 name: tech-spec
 description: "**Technical Specification Document**: Creates detailed technical specs (RFCs, design docs) for features, systems, and integrations. Use this skill whenever the user wants to write a tech spec, design doc, RFC, technical proposal, system design, or API specification. Also trigger when the user says 'spec out', 'design document', 'technical plan', 'how should we build', 'system design for', or wants to plan the implementation of a feature before coding. Trigger even for informal requests like 'I need to think through how to build X' or 'help me plan the architecture for Y'."
+category: documentation
+preferred-model: sonnet
+min-confidence: 0.4
+triggers: {}
+depends-on: [design-patterns]
+estimated-tokens: 5000
+tags: [tech-spec, rfc, proposal, design-doc]
 ---
 
 # Technical Specification Document

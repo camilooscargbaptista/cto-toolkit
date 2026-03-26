@@ -1,6 +1,14 @@
 ---
 name: chaos-engineering
 description: "**Chaos Engineering**: Designs and reviews resilience testing strategies — fault injection, game days, failure mode analysis, and blast radius assessment. Covers chaos experiments for distributed systems, database failures, network partitions, and dependency outages. Use when the user mentions chaos engineering, resilience testing, fault injection, game day, failure testing, blast radius, circuit breaker testing, or wants to verify system reliability under failure conditions."
+triggers:
+  frameworks: [chaos-monkey, litmus, gremlin]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: [observability]
+category: operational
+estimated-tokens: 5000
+tags: [chaos, resilience, fault-injection]
 ---
 
 # Chaos Engineering

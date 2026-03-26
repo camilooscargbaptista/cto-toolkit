@@ -1,6 +1,13 @@
 ---
 name: sprint-planning
 description: "**Sprint & Release Planning**: Helps with sprint planning, backlog grooming, story estimation, release planning, and roadmap creation. Use this skill whenever the user wants to plan a sprint, groom the backlog, write user stories, estimate tasks, plan a release, create a roadmap, prioritize features, or structure a planning meeting. Trigger when the user mentions 'sprint', 'backlog', 'story points', 'estimation', 'velocity', 'roadmap', 'release plan', 'prioritization', 'epic', 'user story', or asks about how to organize upcoming work."
+category: management
+preferred-model: sonnet
+min-confidence: 0.4
+triggers: {}
+depends-on: [engineering-metrics]
+estimated-tokens: 3000
+tags: [sprint, planning, agile, scrum, estimation]
 ---
 
 # Sprint & Release Planning

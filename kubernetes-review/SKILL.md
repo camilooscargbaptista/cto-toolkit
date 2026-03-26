@@ -2,6 +2,15 @@
 name: kubernetes-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Kubernetes & Cloud-Native Review**: Reviews Kubernetes manifests, Helm charts, and cloud-native configurations for security, reliability, resource management, and best practices. Covers pods, deployments, services, ingress, RBAC, network policies, HPA, PDB, security contexts, and GitOps patterns. Use when the user mentions Kubernetes, k8s, kubectl, Helm, pods, deployments, services, ingress, operators, ArgoCD, Flux, or any container orchestration."
+category: devops
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: [devops-infra]
+estimated-tokens: 6000
+triggers:
+  frameworks: [kubernetes, helm, istio, argocd]
+  file-patterns: ["**/k8s/**", "**/*.yaml", "**/charts/**", "**/helmfile.*"]
+tags: [kubernetes, k8s, helm, service-mesh]
 ---
 
 # Kubernetes & Cloud-Native Review

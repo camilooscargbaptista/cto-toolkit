@@ -1,6 +1,15 @@
 ---
 name: cost-optimization
 description: "**Cloud Cost Optimization & FinOps**: Helps analyze and reduce cloud infrastructure costs, optimize resource usage, implement FinOps practices, and find savings opportunities. Use whenever the user mentions 'cloud costs', 'AWS bill', 'cost optimization', 'FinOps', 'right-sizing', 'reserved instances', 'savings plans', 'cost allocation', 'budget', 'overspending', 'cloud waste', 'cost per request', 'unit economics', asks 'why is my AWS/GCP/Azure bill so high', or wants to reduce infrastructure spending without sacrificing performance."
+triggers:
+  frameworks: [aws, gcp, azure, terraform]
+  file-patterns: ["**/terraform/**", "**/cloudformation/**"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: [devops-infra]
+category: devops
+estimated-tokens: 5000
+tags: [finops, cloud-costs, optimization]
 ---
 
 # Cloud Cost Optimization & FinOps

@@ -1,6 +1,13 @@
 ---
 name: team-scaling
 description: "**Team Scaling & Engineering Organization**: Designs engineering org structures, career ladders, hiring processes, and team topologies. Covers engineering levels, job descriptions, interview frameworks, org design patterns, team autonomy, and scaling from startup to enterprise. Use when the user mentions team scaling, org design, engineering ladder, career levels, hiring, team topologies, engineering manager, tech lead, staff engineer, or wants to grow and organize their engineering team."
+category: management
+preferred-model: sonnet
+min-confidence: 0.4
+triggers: {}
+depends-on: [engineering-metrics]
+estimated-tokens: 4000
+tags: [hiring, scaling, team-structure, org-design]
 ---
 
 # Team Scaling & Engineering Organization

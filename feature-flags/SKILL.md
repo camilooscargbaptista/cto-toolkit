@@ -1,6 +1,14 @@
 ---
 name: feature-flags
 description: "Feature flag strategies, rollout patterns, kill switches and flag lifecycle management"
+category: operational
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 3000
+triggers:
+  frameworks: [launchdarkly, flagsmith, unleash]
+tags: [feature-flags, rollout, kill-switch]
 ---
 
 # Feature Flags

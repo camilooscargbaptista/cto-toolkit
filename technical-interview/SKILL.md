@@ -1,6 +1,13 @@
 ---
 name: technical-interview
 description: "**Technical Interview Design**: Creates structured interview plans with rubrics, system design questions, coding challenges, and evaluation scorecards. Covers behavioral interviews, technical assessments, system design interviews, and hiring decision frameworks. Use when the user mentions interview, hiring, technical assessment, coding challenge, system design interview, interview rubric, scorecard, or wants to design a fair and effective interview process."
+category: management
+preferred-model: sonnet
+min-confidence: 0.4
+triggers: {}
+depends-on: []
+estimated-tokens: 3000
+tags: [interview, hiring, assessment, coding-challenge]
 ---
 
 # Technical Interview Design

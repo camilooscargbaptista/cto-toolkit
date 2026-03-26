@@ -2,6 +2,15 @@
 name: ux-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**UX/UI Review & Mockup Feedback**: Reviews user interfaces, mockups, and wireframes for usability, accessibility, consistency, and user experience best practices. Use whenever the user wants feedback on a UI design, mockup, wireframe, screenshot of their app, or mentions 'UX', 'UI', 'mockup', 'wireframe', 'user experience', 'usability', 'design review', 'layout', 'navigation', 'user flow', or asks 'does this look right', 'how can I improve this screen', or shares a screenshot wanting design feedback. Also trigger for mobile UI review (iOS/Android/Flutter), responsive design review, and design system evaluation."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  frameworks: [react, angular, vue, nextjs, svelte]
+  file-patterns: ["**/*.css", "**/*.scss", "**/*.styled.*"]
+depends-on: [frontend-review]
+estimated-tokens: 4000
+tags: [ux, accessibility, a11y, usability, wcag]
 ---
 
 # UX/UI Review & Mockup Feedback

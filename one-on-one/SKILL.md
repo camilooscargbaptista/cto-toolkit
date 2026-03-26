@@ -1,6 +1,13 @@
 ---
 name: one-on-one
 description: "**1:1 Meeting Prep & Notes**: Helps prepare for and document one-on-one meetings with direct reports, skip-levels, and your own manager. Use this skill whenever the user wants to prepare for a 1:1, create meeting notes, structure feedback conversations, plan career development discussions, or handle difficult management conversations. Trigger when the user mentions '1:1', 'one-on-one', 'check-in with', 'meeting with [person]', 'feedback for', 'performance review', 'career conversation', or asks how to have a difficult conversation with a team member."
+category: management
+preferred-model: haiku
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 2000
+triggers: {}
+tags: [1on1, management, feedback, career]
 ---
 
 # 1:1 Meeting Prep & Notes

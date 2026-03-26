@@ -1,6 +1,15 @@
 ---
 name: ai-ml-engineering
 description: "**AI/ML Engineering Review**: Reviews AI/ML systems for production readiness — model serving, MLOps pipelines, LLM integration patterns, prompt engineering, evaluation frameworks, and responsible AI. Covers model deployment, feature stores, experiment tracking, monitoring/drift detection, and AI safety. Use when the user mentions ML, AI, machine learning, model, LLM, GPT, Claude, embeddings, RAG, fine-tuning, MLOps, model serving, feature store, or any AI/ML infrastructure."
+triggers:
+  frameworks: [tensorflow, pytorch, scikit-learn, langchain, openai]
+  file-patterns: ["**/models/**", "**/ml/**", "**/*.ipynb"]
+preferred-model: opus
+min-confidence: 0.4
+depends-on: []
+category: ai-ml
+estimated-tokens: 7000
+tags: [ai, ml, llm, mlops]
 ---
 
 # AI/ML Engineering Review

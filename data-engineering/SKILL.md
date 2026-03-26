@@ -1,6 +1,15 @@
 ---
 name: data-engineering
 description: "**Data Engineering Review**: Reviews data pipelines, ETL/ELT processes, data quality frameworks, data contracts, and data platform architecture. Covers batch and streaming pipelines, data lakes/warehouses, dbt, Airflow, Spark, data governance, and data observability. Use when the user mentions data pipeline, ETL, ELT, data warehouse, data lake, dbt, Airflow, Spark, data quality, data contracts, data mesh, Snowflake, BigQuery, Redshift, or any data infrastructure."
+triggers:
+  frameworks: [airflow, dbt, spark, snowflake, bigquery, redshift]
+  file-patterns: ["**/dbt/**", "**/airflow/**", "**/pipelines/**"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: data
+estimated-tokens: 6000
+tags: [data, etl, pipeline, warehouse]
 ---
 
 # Data Engineering Review

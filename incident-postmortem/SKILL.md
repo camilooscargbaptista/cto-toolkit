@@ -1,6 +1,13 @@
 ---
 name: incident-postmortem
 description: "**Incident Response & Postmortem**: Creates blameless postmortem documents and incident response runbooks. Use this skill whenever the user wants to write a postmortem, incident report, root cause analysis (RCA), create an incident runbook, document an outage, or analyze what went wrong in production. Trigger when the user mentions 'postmortem', 'incident', 'outage', 'RCA', 'root cause', 'production issue', 'downtime', 'war room', 'on-call', or wants to improve their incident response process. Also trigger when the user asks to create escalation procedures or SLA documentation."
+category: operational
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: [observability]
+estimated-tokens: 4000
+triggers: {}
+tags: [incident, postmortem, rca, blameless]
 ---
 
 # Incident Response & Postmortem

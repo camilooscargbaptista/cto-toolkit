@@ -1,6 +1,13 @@
 ---
 name: on-call-design
 description: "On-call rotation design, escalation tiers, runbook standards and burnout prevention"
+category: operational
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: [observability, incident-postmortem]
+estimated-tokens: 4000
+triggers: {}
+tags: [on-call, escalation, runbook, pagerduty]
 ---
 
 # On-Call Design & Incident Response

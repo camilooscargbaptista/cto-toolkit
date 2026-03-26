@@ -1,6 +1,15 @@
 ---
 name: testing-strategy
 description: "**Testing Strategy (TDD, BDD, QA)**: Expert guide for test-driven development, behavior-driven development, unit testing, integration testing, E2E testing, and QA processes. Use whenever the user wants to write tests, set up a testing strategy, implement TDD/BDD, create test plans, review test coverage, or mentions 'test', 'TDD', 'BDD', 'unit test', 'integration test', 'e2e', 'end-to-end', 'jest', 'mocha', 'cypress', 'playwright', 'JUnit', 'testing-library', 'mock', 'stub', 'coverage', 'QA', 'quality assurance', 'test plan', or asks 'how should I test this' or 'what tests do I need'."
+category: testing
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  file-patterns: ["**/*.test.*", "**/*.spec.*", "**/jest.config.*", "**/vitest.config.*", "**/cypress/**"]
+  score-below: 65
+depends-on: []
+estimated-tokens: 5000
+tags: [testing, tdd, coverage, e2e, unit-test]
 ---
 
 # Testing Strategy — TDD, BDD & QA

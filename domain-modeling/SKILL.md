@@ -1,6 +1,16 @@
 ---
 name: domain-modeling
 description: "DDD practical guide: Event Storming, Bounded Contexts, Aggregates and domain-driven design patterns"
+triggers:
+  anti-patterns: [anemic_domain, god_class]
+  dimensions:
+    cohesion: 60
+preferred-model: opus
+min-confidence: 0.4
+depends-on: [design-patterns]
+category: architecture
+estimated-tokens: 7000
+tags: [ddd, domain, event-storming, aggregates]
 ---
 
 # Domain Modeling (DDD Practical)

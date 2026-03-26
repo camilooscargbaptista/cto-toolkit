@@ -2,6 +2,14 @@
 name: pr-description
 allowed-tools: Read, Grep, Glob, Bash
 description: "**PR Description Writer**: Generates comprehensive, senior-level pull request descriptions with context, impact analysis, and review guidance. Use whenever the user wants to create a PR, write a PR description, summarize branch changes for a pull request, open a pull request, or mentions 'PR', 'pull request', 'merge request', 'MR', 'code review description', or asks to 'describe my changes'. Also trigger when the user runs git commands related to pushing branches or asks for help with GitHub/GitLab PR workflows."
+category: code-quality
+preferred-model: haiku
+min-confidence: 0.4
+triggers:
+  always: true
+depends-on: []
+estimated-tokens: 2000
+tags: [pr, pull-request, description, changelog]
 ---
 
 # PR Description Writer

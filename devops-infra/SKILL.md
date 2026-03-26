@@ -1,6 +1,15 @@
 ---
 name: devops-infra
 description: "**DevOps & Infrastructure (Docker, AWS, Messaging)**: Helps with Docker configuration, AWS architecture, CI/CD pipelines, Kubernetes, monitoring, and messaging infrastructure (Kafka, SQS, SNS). Use whenever the user wants to review or create Dockerfiles, docker-compose configs, AWS architecture, CI/CD pipelines, infrastructure as code, or mentions Docker, Kubernetes, ECS, Lambda, S3, RDS, CloudFront, Terraform, GitHub Actions, Jenkins, Kafka, SQS, SNS, monitoring, alerting, or asks about deployment strategies, scaling, or infrastructure design."
+triggers:
+  frameworks: [docker, kubernetes, terraform, github-actions, jenkins]
+  file-patterns: ["**/Dockerfile*", "**/docker-compose*", "**/.github/workflows/**", "**/terraform/**"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: devops
+estimated-tokens: 5000
+tags: [docker, kubernetes, ci-cd, infrastructure]
 ---
 
 # DevOps & Infrastructure

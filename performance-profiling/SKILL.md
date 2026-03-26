@@ -1,6 +1,16 @@
 ---
 name: performance-profiling
 description: "**Performance Profiling & Optimization**: Helps diagnose and fix performance issues including memory leaks, CPU bottlenecks, slow queries, high latency, and throughput problems. Covers profiling tools, flame graphs, load testing, caching strategies, and optimization techniques for Node.js, Java, Flutter, and web applications. Use whenever the user mentions 'performance', 'slow', 'memory leak', 'OOM', 'high CPU', 'latency', 'throughput', 'flame graph', 'profiling', 'load test', 'benchmark', 'cache', 'optimization', 'p99', 'response time', 'bottleneck', 'event loop', 'garbage collection', 'heap', or says 'my app is slow', 'why is this endpoint slow', 'we're running out of memory'."
+category: performance
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  anti-patterns: [n_plus_one, eager_loading, missing_cache]
+  frameworks: [express, nestjs, fastify, spring]
+  file-patterns: ["**/benchmark/**", "**/perf/**"]
+depends-on: []
+estimated-tokens: 5000
+tags: [performance, profiling, latency, optimization]
 ---
 
 # Performance Profiling & Optimization

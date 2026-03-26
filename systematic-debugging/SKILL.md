@@ -1,6 +1,13 @@
 ---
 name: systematic-debugging
 description: "**Systematic Debugging Methodology**: Provides structured approaches to diagnose and fix bugs in any technology stack. Covers scientific debugging method, binary search for bugs, log analysis, memory/performance debugging, distributed system debugging, and production incident investigation. Use whenever the user is stuck debugging, says 'I can't figure out this bug', 'why is this failing', 'this doesn't work', 'help me debug', 'what's wrong with this code', 'error investigation', 'production issue', 'intermittent bug', 'flaky test', 'memory leak', 'race condition', or is dealing with any kind of software defect they need help diagnosing."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.4
+triggers: {}
+depends-on: []
+estimated-tokens: 4000
+tags: [debugging, troubleshooting, root-cause, bisect]
 ---
 
 # Systematic Debugging Methodology

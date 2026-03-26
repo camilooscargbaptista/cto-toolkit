@@ -2,6 +2,16 @@
 name: database-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Database Design & SQL Review**: Expert guide for schema design, database migrations, query optimization, indexing strategy, and database performance. Covers relational (PostgreSQL, MySQL) and NoSQL (MongoDB, DynamoDB, Redis). Use whenever the user mentions 'database', 'schema', 'migration', 'SQL', 'query optimization', 'slow query', 'index', 'N+1', 'normalization', 'denormalization', 'PostgreSQL', 'MySQL', 'MongoDB', 'DynamoDB', 'Redis', 'ORM', 'TypeORM', 'Prisma', 'Sequelize', 'query plan', 'EXPLAIN', 'deadlock', 'connection pool', or asks about database design, data modeling, or performance tuning."
+triggers:
+  anti-patterns: [n_plus_one, missing_index, no_migration_strategy]
+  frameworks: [prisma, typeorm, sequelize, knex, postgres, mysql, mongodb]
+  file-patterns: ["**/migrations/**", "**/schema.*", "**/prisma/**"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: database
+estimated-tokens: 5000
+tags: [database, sql, migration, schema]
 ---
 
 # Database Design & SQL Review

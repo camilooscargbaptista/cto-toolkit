@@ -1,6 +1,18 @@
 ---
 name: tech-debt-prioritization
 description: "Framework for identifying, quantifying and prioritizing technical debt with RICE scoring"
+category: architecture
+preferred-model: opus
+min-confidence: 0.4
+triggers:
+  anti-patterns: [god_class, spaghetti_code, circular_dependency]
+  score-below: 65
+  dimensions:
+    modularity: 55
+    coupling: 55
+depends-on: [design-patterns, database-review]
+estimated-tokens: 7000
+tags: [tech-debt, refactoring, prioritization, roi]
 ---
 
 # Tech Debt Prioritization

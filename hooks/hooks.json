@@ -36,6 +36,15 @@
             "prompt": "If the file just written/edited is a test file (*.spec.ts, *.test.ts, *_test.go, *_test.py), verify: (1) tests have descriptive names, (2) mocks are not hardcoded with magic values, (3) edge cases are covered (null, empty, boundary), (4) no console.log left in tests. Report only if issues found."
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/model-routing-check.sh"
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -47,6 +56,15 @@
             "prompt": "Check if the bash command contains any of these destructive patterns: 'rm -rf /', 'DROP DATABASE', 'TRUNCATE TABLE', 'DELETE FROM' without WHERE, 'format', ':(){:|:&};:'. If ANY are found, REFUSE to execute and warn the user. $ARGUMENTS"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If the bash command is deploying to production (kubectl apply, terraform apply, docker push, aws deploy, gcloud deploy, npm publish), verify: (1) the target environment is explicitly specified, (2) no --force flags used without justification, (3) dry-run was suggested first. Report only if issues found. $ARGUMENTS"
+          }
+        ]
       }
     ],
     "Stop": [
@@ -55,6 +73,24 @@
           {
             "type": "prompt",
             "prompt": "Review the work done in this session. If code was written or modified, briefly verify: (1) no hardcoded secrets were introduced, (2) error handling is present on I/O operations, (3) any new functions have reasonable naming. Report only if issues found — otherwise stay silent. $ARGUMENTS"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-learning.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/auto-activate.sh"
           }
         ]
       }

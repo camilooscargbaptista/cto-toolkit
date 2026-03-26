@@ -1,6 +1,15 @@
 ---
 name: csharp-dotnet-review
 description: "Review .NET/C# code: ASP.NET Core, EF Core, Minimal APIs, Azure patterns and performance"
+triggers:
+  frameworks: [dotnet, aspnet, efcore, blazor]
+  file-patterns: ["**/*.cs", "**/*.csproj"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: code-quality
+estimated-tokens: 5000
+tags: [csharp, dotnet, aspnet]
 ---
 
 # C# / .NET Code Review

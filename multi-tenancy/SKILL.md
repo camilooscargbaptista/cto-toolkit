@@ -1,6 +1,15 @@
 ---
 name: multi-tenancy
 description: "Multi-tenant architecture patterns: row-level, schema-level, database-level isolation and tenant routing"
+category: architecture
+preferred-model: opus
+min-confidence: 0.8
+depends-on: [database-review, security-review]
+estimated-tokens: 6000
+triggers:
+  domains: [saas]
+  frameworks: [postgres, prisma, typeorm]
+tags: [multi-tenant, saas, isolation, sharding]
 ---
 
 # Multi-Tenancy Patterns

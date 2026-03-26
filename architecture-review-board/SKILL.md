@@ -1,6 +1,14 @@
 ---
 name: architecture-review-board
 description: "ARB process design, RFC governance, decision log and technical review workflows"
+triggers:
+  score-below: 60
+preferred-model: opus
+min-confidence: 0.4
+depends-on: [design-patterns, adr]
+category: management
+estimated-tokens: 6000
+tags: [arb, governance, rfc]
 ---
 
 # Architecture Review Board (ARB)

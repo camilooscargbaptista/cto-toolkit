@@ -1,6 +1,14 @@
 ---
 name: developer-experience
 description: "**Developer Experience (DX) Audit**: Assesses and improves developer productivity and satisfaction — build times, CI/CD speed, onboarding friction, tooling quality, documentation, and internal developer portal. Covers developer surveys, golden paths, platform engineering, and DX metrics. Use when the user mentions developer experience, DX, developer productivity, build times, slow CI, onboarding friction, internal tooling, developer portal, platform engineering, or wants to improve engineering team happiness and velocity."
+triggers:
+  file-patterns: ["**/package.json", "**/Makefile", "**/.github/**"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: management
+estimated-tokens: 4000
+tags: [dx, productivity, tooling, onboarding]
 ---
 
 # Developer Experience (DX) Audit

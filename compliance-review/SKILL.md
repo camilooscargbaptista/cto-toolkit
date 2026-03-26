@@ -1,6 +1,15 @@
 ---
 name: compliance-review
 description: "**Compliance & Governance Review**: Reviews systems for regulatory compliance — SOC2, HIPAA, PCI-DSS, ISO 27001, LGPD/GDPR. Covers access control, audit logging, encryption, data retention, incident response, and compliance documentation. Use when the user mentions SOC2, HIPAA, PCI, ISO 27001, LGPD, GDPR, compliance, audit, governance, regulatory, data protection, privacy policy, or needs to prepare for a compliance audit."
+triggers:
+  domains: [fintech, healthtech]
+  anti-patterns: [missing_audit_log, unencrypted_pii]
+preferred-model: opus
+min-confidence: 0.4
+depends-on: [security-review]
+category: compliance
+estimated-tokens: 7000
+tags: [soc2, hipaa, pci, gdpr, lgpd]
 ---
 
 # Compliance & Governance Review

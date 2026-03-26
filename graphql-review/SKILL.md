@@ -2,6 +2,15 @@
 name: graphql-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**GraphQL Design & Security Review**: Reviews GraphQL schemas, resolvers, and configurations for design quality, security, performance, and best practices. Covers schema design, N+1 prevention (DataLoader), query complexity limits, authentication, authorization, federation, and subscriptions. Use when the user mentions GraphQL, schema, resolvers, mutations, queries, subscriptions, Apollo, Relay, DataLoader, federation, or .graphql files."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 5000
+triggers:
+  frameworks: [apollo, relay, graphql-yoga, hasura]
+  file-patterns: ["**/*.graphql", "**/schema.graphql"]
+tags: [graphql, schema, resolvers, federation]
 ---
 
 # GraphQL Design & Security Review

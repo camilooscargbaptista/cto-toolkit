@@ -1,6 +1,15 @@
 ---
 name: observability
 description: "**Observability, Monitoring & SRE**: Comprehensive guide for implementing observability (logs, metrics, traces), setting up monitoring and alerting, defining SLOs/SLIs/SLAs, creating dashboards, and incident detection. Use whenever the user mentions 'observability', 'monitoring', 'alerting', 'logging', 'metrics', 'tracing', 'SLO', 'SLI', 'SLA', 'error budget', 'dashboard', 'Grafana', 'Prometheus', 'DataDog', 'CloudWatch', 'New Relic', 'Jaeger', 'OpenTelemetry', 'OTEL', 'uptime', 'latency', 'p99', 'alert fatigue', 'on-call', 'PagerDuty', or asks 'how do I know if my system is healthy', 'what should I monitor', or wants to improve production visibility."
+category: operational
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 5000
+triggers:
+  frameworks: [datadog, newrelic, grafana, prometheus, opentelemetry, jaeger]
+  file-patterns: ["**/monitoring/**", "**/metrics/**"]
+tags: [monitoring, logging, tracing, alerting, slo]
 ---
 
 # Observability, Monitoring & SRE

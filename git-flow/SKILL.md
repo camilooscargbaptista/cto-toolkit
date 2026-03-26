@@ -1,6 +1,14 @@
 ---
 name: git-flow
 description: "**Git Workflow & Branching Strategy**: Helps define and follow Git branching strategies (Git Flow, GitHub Flow, Trunk-Based), write good commit messages, manage releases, and resolve merge conflicts. Use whenever the user asks about Git workflow, branching strategy, commit conventions, release management, merge conflicts, or mentions 'git flow', 'branching', 'commit message', 'conventional commits', 'release branch', 'hotfix', 'merge conflict', 'rebase', 'cherry-pick', or asks how to organize their Git workflow."
+category: devops
+preferred-model: haiku
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 3000
+triggers:
+  file-patterns: ["**/.gitignore", "**/.github/**"]
+tags: [git, branching, commits, release]
 ---
 
 # Git Workflow & Branching Strategy

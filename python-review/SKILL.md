@@ -2,6 +2,15 @@
 name: python-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Python Code Review**: Reviews Python code for quality, patterns, and best practices across Django, FastAPI, Flask, async/await, data processing, and general Python. Covers type hints, error handling, Pythonic patterns, security, performance, and testing. Use when the user wants a review of Python code, mentions .py files, Django, FastAPI, Flask, Celery, SQLAlchemy, Pydantic, or any Python framework."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  frameworks: [django, flask, fastapi, sqlalchemy, celery]
+  file-patterns: ["**/*.py", "**/requirements.txt", "**/pyproject.toml"]
+depends-on: []
+estimated-tokens: 5000
+tags: [python, django, flask, fastapi]
 ---
 
 # Python Code Review

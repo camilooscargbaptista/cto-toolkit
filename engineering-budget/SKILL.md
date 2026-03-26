@@ -1,6 +1,13 @@
 ---
 name: engineering-budget
 description: "Engineering budget planning, headcount forecasting, infrastructure cost modeling and ROI analysis"
+category: management
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: [engineering-metrics]
+estimated-tokens: 4000
+triggers: {}
+tags: [budget, headcount, roi, planning]
 ---
 
 # Engineering Budget & Resource Planning

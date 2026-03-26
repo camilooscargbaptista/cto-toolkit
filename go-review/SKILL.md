@@ -2,6 +2,15 @@
 name: go-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Go Code Review**: Reviews Go code for idiomatic patterns, error handling, concurrency safety, and performance. Covers goroutines, channels, interfaces, error wrapping, context propagation, and common Go anti-patterns. Use when the user wants a review of Go code, mentions .go files, Go modules, goroutines, channels, gin, echo, fiber, gRPC, or any Go framework."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 5000
+triggers:
+  frameworks: [gin, echo, fiber, grpc-go]
+  file-patterns: ["**/*.go", "**/go.mod"]
+tags: [go, golang, goroutines, channels]
 ---
 
 # Go Code Review

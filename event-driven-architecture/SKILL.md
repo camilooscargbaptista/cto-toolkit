@@ -1,6 +1,16 @@
 ---
 name: event-driven-architecture
 description: "**Event-Driven Architecture Review**: Reviews and designs event-driven systems — Event Sourcing, CQRS, Saga patterns, Domain Events, message brokers, and eventual consistency. Use when the user mentions events, event sourcing, CQRS, saga, choreography vs orchestration, Kafka architecture, event store, projections, read models, domain events, or wants to design or review an event-driven system."
+category: architecture
+preferred-model: opus
+min-confidence: 0.8
+depends-on: [design-patterns]
+estimated-tokens: 7000
+triggers:
+  frameworks: [kafka, rabbitmq, sqs, sns, nats, eventstore]
+  anti-patterns: [tight_coupling]
+  file-patterns: ["**/events/**", "**/handlers/**"]
+tags: [events, cqrs, saga, event-sourcing]
 ---
 
 # Event-Driven Architecture Review

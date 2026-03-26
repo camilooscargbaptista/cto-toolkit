@@ -2,6 +2,15 @@
 name: full-review
 allowed-tools: Read, Grep, Glob, Bash, Agent
 description: "**Full Code Review Orchestrator**: Runs a comprehensive multi-dimensional code review by orchestrating multiple specialized review skills in sequence. Produces a consolidated report covering code quality, security, performance, database, architecture, and testing. Use when the user wants a 'full review', 'complete review', 'comprehensive code review', 'review everything', or wants the deepest possible analysis of their code or project."
+category: code-quality
+preferred-model: opus
+min-confidence: 0.9
+depends-on: [backend-review, security-review, testing-strategy, design-patterns]
+estimated-tokens: 12000
+triggers:
+  score-below: 60
+  always: false
+tags: [full-review, comprehensive, orchestrator]
 ---
 
 # Full Code Review Orchestrator

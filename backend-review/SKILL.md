@@ -2,6 +2,15 @@
 name: backend-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Backend Code Review (Node.js, Java, Microservices)**: Expert review of backend code focusing on Node.js, Java, Clean Architecture, SOLID principles, microservices patterns, SQL/database design, messaging (Kafka, SQS, SNS), and payment flows. Use whenever the user wants a review of backend code, API design, service architecture, database queries, or mentions Node, Java, Spring, NestJS, Express, microservices, REST API, gRPC, or asks to review server-side code. Also trigger for database schema reviews, query optimization, and message queue patterns."
+triggers:
+  frameworks: [express, nestjs, spring, fastify, koa, hapi]
+  file-patterns: ["**/src/**/*.ts", "**/src/**/*.java", "**/src/**/*.py"]
+preferred-model: sonnet
+min-confidence: 0.4
+depends-on: []
+category: code-quality
+estimated-tokens: 5000
+tags: [backend, nodejs, java, api]
 ---
 
 # Backend Code Review

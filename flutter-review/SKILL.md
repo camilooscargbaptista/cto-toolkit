@@ -2,6 +2,15 @@
 name: flutter-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Flutter & Dart Code Review**: Expert review of Flutter applications focusing on widget architecture, state management, Dart best practices, performance, and platform-specific considerations. Use whenever the user wants a review of Flutter/Dart code, widget design, state management patterns, or mentions Flutter, Dart, widgets, BLoC, Riverpod, Provider, Cubit, or asks to review mobile app code. Also trigger for Flutter performance reviews, platform channel audits, and app architecture analysis."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 5000
+triggers:
+  frameworks: [flutter, dart, riverpod, bloc, provider]
+  file-patterns: ["**/*.dart", "**/pubspec.yaml"]
+tags: [flutter, dart, mobile, widgets]
 ---
 
 # Flutter & Dart Code Review

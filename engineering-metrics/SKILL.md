@@ -1,6 +1,14 @@
 ---
 name: engineering-metrics
 description: "**Engineering Metrics & DORA**: Defines, measures, and improves engineering team performance using DORA metrics, developer productivity metrics, and engineering health indicators. Covers deployment frequency, lead time, MTTR, change failure rate, cycle time, developer experience surveys, and engineering investment allocation. Use when the user mentions DORA, engineering metrics, deployment frequency, lead time, MTTR, change failure rate, developer productivity, cycle time, velocity, engineering health, or wants to measure team performance."
+category: management
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 4000
+triggers:
+  file-patterns: ["**/.github/workflows/**"]
+tags: [dora, metrics, velocity, lead-time]
 ---
 
 # Engineering Metrics & DORA

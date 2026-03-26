@@ -1,10 +1,17 @@
 ---
 name: architecture-reviewer
 description: "Autonomous architecture health analyzer. Scans the entire codebase to assess architectural quality — dependency direction, coupling, cohesion, layer separation, and anti-patterns. Produces a structured Architecture Health Report with severity-ranked findings and concrete refactoring recommendations. Invoke when the user says 'review the architecture', 'assess codebase health', 'find architectural issues', 'dependency analysis', or wants a high-level view of code quality across the project."
-model: sonnet
+model: opus
 effort: high
 maxTurns: 30
 disallowedTools: Write, Edit, NotebookEdit
+model-routing:
+  default: sonnet
+  escalate-on: [low_score, anti_patterns_detected, circular_dependencies]
+  escalate-to: opus
+category: architecture
+depends-on-skills: [design-patterns, tech-debt-prioritization, domain-modeling]
+estimated-tokens: 20000
 ---
 
 # Architecture Reviewer Agent

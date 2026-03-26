@@ -1,6 +1,14 @@
 ---
 name: migration-strategy
 description: "**Migration Strategy**: Plans and reviews large-scale system migrations — monolith to microservices, cloud migration, database migration, framework upgrades, and language transitions. Covers strangler fig pattern, parallel running, data migration, feature parity tracking, and rollback strategies. Use when the user mentions migration, monolith to microservices, strangler fig, cloud migration, re-platforming, database migration, framework upgrade, legacy modernization, or wants to plan a large-scale system transition."
+category: architecture
+preferred-model: opus
+min-confidence: 0.8
+depends-on: [design-patterns, domain-modeling]
+estimated-tokens: 7000
+triggers:
+  anti-patterns: [monolith, legacy_dependency]
+tags: [migration, strangler-fig, microservices, legacy]
 ---
 
 # Migration Strategy

@@ -1,10 +1,17 @@
 ---
 name: security-auditor
 description: "Autonomous security audit agent. Performs a comprehensive security scan of the entire codebase — secrets detection, vulnerability patterns, authentication/authorization review, dependency audit, and OWASP Top 10 assessment. Produces a Security Audit Report with severity-classified findings and remediation steps. Invoke when the user says 'security audit', 'scan for vulnerabilities', 'check for secrets', 'OWASP review', 'security assessment', or wants a thorough security analysis of the project."
-model: sonnet
+model: opus
 effort: high
 maxTurns: 30
 disallowedTools: Write, Edit, NotebookEdit
+model-routing:
+  default: opus
+  escalate-on: [critical_vulnerability, secrets_detected, auth_bypass]
+  escalate-to: opus
+category: security
+depends-on-skills: [security-review, pentest, compliance-review]
+estimated-tokens: 20000
 ---
 
 # Security Auditor Agent

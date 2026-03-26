@@ -1,6 +1,18 @@
 ---
 name: design-patterns
 description: "**Design Patterns, SOLID & Clean Architecture**: Reference guide and advisor for software design patterns, SOLID principles, Clean Code practices, and Clean Architecture. Use whenever the user asks about design patterns, SOLID principles, Clean Code, Clean Architecture, DDD, refactoring, code organization, coupling, cohesion, or wants guidance on how to structure their code. Trigger when the user mentions 'pattern', 'SOLID', 'clean code', 'clean architecture', 'DDD', 'domain-driven', 'refactor', 'abstraction', 'dependency injection', 'repository pattern', or asks 'how should I structure this' or 'what pattern should I use'."
+triggers:
+  anti-patterns: [god_class, feature_envy, shotgun_surgery, spaghetti_code]
+  dimensions:
+    modularity: 65
+    coupling: 65
+    cohesion: 60
+preferred-model: opus
+min-confidence: 0.4
+depends-on: []
+category: architecture
+estimated-tokens: 6000
+tags: [solid, patterns, clean-code, ddd]
 ---
 
 # Design Patterns, SOLID & Clean Architecture

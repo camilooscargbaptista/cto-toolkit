@@ -1,6 +1,13 @@
 ---
 name: vendor-evaluation
 description: "Build vs Buy scorecard, vendor lock-in risk, SLA negotiation and vendor management"
+category: management
+preferred-model: sonnet
+min-confidence: 0.4
+triggers: {}
+depends-on: []
+estimated-tokens: 3000
+tags: [vendor, evaluation, build-vs-buy, procurement]
 ---
 
 # Vendor Evaluation & Build vs Buy Analysis

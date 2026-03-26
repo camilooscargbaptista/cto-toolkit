@@ -2,6 +2,15 @@
 name: frontend-review
 allowed-tools: Read, Grep, Glob, Bash
 description: "**Frontend Code Review (Angular & React)**: Expert review of frontend code focusing on Angular, React, component architecture, state management, performance, accessibility, and UI patterns. Use whenever the user wants a review of frontend code, component design, state management, or mentions Angular, React, TypeScript, RxJS, Redux, hooks, components, CSS, responsive design, or asks to review client-side code. Also trigger for frontend performance reviews, bundle analysis, and accessibility audits."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.8
+depends-on: []
+estimated-tokens: 5000
+triggers:
+  frameworks: [react, angular, vue, nextjs, nuxt, svelte]
+  file-patterns: ["**/*.tsx", "**/*.jsx", "**/*.vue", "**/*.svelte"]
+tags: [frontend, react, angular, css, accessibility]
 ---
 
 # Frontend Code Review

@@ -5,6 +5,13 @@ model: sonnet
 effort: high
 maxTurns: 30
 disallowedTools: Write, Edit, NotebookEdit
+model-routing:
+  default: sonnet
+  escalate-on: [large_codebase, complex_architecture]
+  escalate-to: opus
+category: management
+depends-on-skills: [backend-review, frontend-review, devops-infra]
+estimated-tokens: 18000
 ---
 
 # Onboarding Guide Agent

@@ -1,6 +1,17 @@
 ---
 name: quality-standard
 description: "**Quality Standard Protocol**: Defines the senior architect mindset that all other skills must follow. Enforces self-verification, edge case analysis, decomposition rules, anti-pattern awareness, and quality gates. This skill is NOT triggered directly — it is referenced by other skills to ensure every output has the depth, precision, and rigor of a 20-year veteran architect. Other skills should read this file when producing deliverables (reviews, specs, stories, plans, PR descriptions)."
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  score-below: 70
+  dimensions:
+    modularity: 60
+    coupling: 60
+depends-on: [code-review]
+estimated-tokens: 4000
+tags: [quality, standards, guidelines, best-practices]
 ---
 
 # Quality Standard Protocol

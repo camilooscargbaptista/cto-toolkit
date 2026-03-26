@@ -1,6 +1,15 @@
 ---
 name: swift-review
 description: "Review Swift/iOS code: SwiftUI, Combine, UIKit, App Store guidelines and iOS architecture"
+category: code-quality
+preferred-model: sonnet
+min-confidence: 0.4
+triggers:
+  frameworks: [swiftui, uikit, combine, vapor]
+  file-patterns: ["**/*.swift", "**/Package.swift"]
+depends-on: []
+estimated-tokens: 5000
+tags: [swift, ios, swiftui, apple]
 ---
 
 # Swift / iOS Code Review

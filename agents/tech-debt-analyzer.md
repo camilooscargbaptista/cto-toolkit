@@ -5,6 +5,13 @@ model: sonnet
 effort: high
 maxTurns: 30
 disallowedTools: Write, Edit, NotebookEdit
+model-routing:
+  default: sonnet
+  escalate-on: [high_debt_ratio, critical_dependencies, architectural_drift]
+  escalate-to: opus
+category: architecture
+depends-on-skills: [design-patterns, database-review, testing-strategy]
+estimated-tokens: 18000
 ---
 
 # Tech Debt Analyzer Agent
